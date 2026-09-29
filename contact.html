@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contact Common Goods with a question about an order, a product, or just to say hello.">
+  <title>Contact — Common Goods</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="theme.css" rel="stylesheet">
+  <style>
+    :root { --ink:#20251f; --muted:#777c72; --paper:#f8f8f4; --line:#e7e8df; --green:#526b4d; --lime:#d9ed87; }
+    * { box-sizing:border-box; }
+    body { background:var(--paper); color:var(--ink); font-family:'DM Sans',sans-serif; }
+    h1,h2,h3,.brand { font-family:'Manrope',sans-serif; }
+    a { color:inherit; text-decoration:none; }
+    .announcement { min-height:34px; background:var(--ink); color:#f7f7ef; font-size:.68rem; letter-spacing:.08em; }
+    .navbar { border-bottom:1px solid var(--line); background:var(--paper); }
+    .navbar > .container { min-height:76px; }
+    .brand { font-size:1.25rem; font-weight:800; letter-spacing:-.07em; }
+    .brand-mark { display:inline-grid; width:25px; height:25px; margin-right:7px; place-items:center; border-radius:50%; background:var(--lime); font-family:Georgia,serif; font-size:1rem; font-weight:400; }
+    .nav-link { color:#4e524b; font-size:.84rem; }
+    .nav-link:hover,.nav-link.active { color:var(--green); }
+    .contact-hero { padding:73px 0 54px; }
+    .eyebrow,.section-kicker { color:var(--green); font-size:.68rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+    .contact-hero h1 { max-width:720px; margin:13px 0 14px; font-size:clamp(2.8rem,6vw,5rem); font-weight:600; letter-spacing:-.075em; line-height:1; }
+    .contact-hero p { max-width:520px; color:var(--muted); font-size:.95rem; line-height:1.8; }
+    .contact-layout { padding:0 0 85px; }
+    .contact-details { padding:16px 45px 20px 0; }
+    .contact-form-wrap { padding:16px 0 20px 45px; border-left:1px solid var(--line); }
+    .contact-title { margin:0 0 24px; font-size:1.25rem; font-weight:700; letter-spacing:-.04em; }
+    .contact-item { display:grid; grid-template-columns:38px 1fr; gap:12px; padding:17px 0; border-top:1px solid var(--line); }
+    .contact-item i { color:var(--green); font-size:1.05rem; }
+    .contact-item h3 { margin:0 0 5px; font-family:'DM Sans',sans-serif; font-size:.84rem; font-weight:700; }
+    .contact-item p,.contact-item a { margin:0; color:var(--muted); font-size:.8rem; line-height:1.7; }
+    .form-label { margin-bottom:6px; font-size:.76rem; font-weight:600; }
+    .form-control,.form-select { min-height:46px; border-color:#dfe1d8; border-radius:0; background:transparent; font-size:.84rem; }
+    textarea.form-control { min-height:145px; resize:vertical; }
+    .form-control:focus,.form-select:focus { border-color:var(--green); box-shadow:0 0 0 .18rem rgba(82,107,77,.12); }
+    .send-button { min-height:48px; padding:0 20px; border:0; background:var(--ink); color:white; font-size:.8rem; font-weight:700; }
+    .send-button:hover { background:var(--green); }
+    .form-note { color:var(--muted); font-size:.72rem; line-height:1.6; }
+    .form-status { min-height:24px; color:var(--green); font-size:.8rem; }
+    .faq-band { padding:65px 0; background:#e8ecdf; }
+    .faq-band h2 { margin:10px 0 28px; font-size:2rem; font-weight:600; letter-spacing:-.06em; }
+    .accordion-item { border:0; border-top:1px solid #ccd1c5; border-radius:0 !important; background:transparent; }
+    .accordion-button { padding:18px 0; background:transparent; box-shadow:none !important; color:var(--ink); font-size:.86rem; font-weight:600; }
+    .accordion-button:not(.collapsed) { background:transparent; color:var(--green); }
+    .accordion-body { padding:0 0 18px; color:#656b60; font-size:.81rem; line-height:1.7; }
+    footer { padding:28px 0; background:var(--ink); color:white; }
+    .footer-note { color:#a9ada5; font-size:.72rem; }
+    @media (max-width:767.98px) { .navbar > .container { min-height:65px; } .contact-hero { padding:55px 0 38px; } .contact-layout { padding-bottom:60px; } .contact-details { padding:0 12px 35px; } .contact-form-wrap { padding:35px 12px 0; border-top:1px solid var(--line); border-left:0; } .faq-band { padding:50px 0; } }
+  </style>
+</head>
+<body>
+  <div class="announcement d-flex align-items-center justify-content-center px-3 text-center">A GOOD THING, DELIVERED FREE ON ORDERS OVER $75</div>
+  <nav class="navbar navbar-expand-md sticky-top" aria-label="Main navigation"><div class="container">
+    <a class="brand d-flex align-items-center" href="index.html" aria-label="Common Goods home"><span class="brand-mark">c</span>common goods</a>
+    <button class="theme-toggle ms-auto me-2 d-md-none" type="button" data-theme-toggle aria-label="Switch theme" title="Switch theme"><i class="bi bi-moon-stars" aria-hidden="true"></i></button>
+    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation"><i class="bi bi-list fs-3"></i></button>
+    <div class="collapse navbar-collapse" id="mainNav"><ul class="navbar-nav mx-auto gap-md-3">
+      <li class="nav-item"><a class="nav-link" href="index.html#shop">Shop all</a></li><li class="nav-item"><a class="nav-link" href="about.html">Our story</a></li><li class="nav-item"><a class="nav-link active" href="contact.html" aria-current="page">Contact</a></li>
+    </ul><a class="nav-link" href="index.html#shop">Visit the shop <i class="bi bi-arrow-right ms-1"></i></a><button class="theme-toggle d-none d-md-inline-flex ms-md-3" type="button" data-theme-toggle aria-label="Switch theme" title="Switch theme"><i class="bi bi-moon-stars" aria-hidden="true"></i></button></div>
+  </div></nav>
+  <main>
+    <header class="contact-hero container"><span class="eyebrow">We’re easy to find</span><h1>Let’s talk about the little things.</h1><p>Questions about a product, an order, or a thoughtful gift? Send a note and we’ll point you in the right direction.</p></header>
+    <section class="contact-layout container"><div class="row gy-4">
+      <aside class="col-md-5 contact-details"><h2 class="contact-title">A few ways to reach us</h2>
+        <div class="contact-item"><i class="bi bi-envelope" aria-hidden="true"></i><div><h3>Email</h3><a href="mailto:hello@commongoods.example">hello@commongoods.example</a><p>Usually back within two business days.</p></div></div>
+        <div class="contact-item"><i class="bi bi-clock" aria-hidden="true"></i><div><h3>Studio hours</h3><p>Monday–Friday, 9am–5pm<br>Eastern Time</p></div></div>
+        <div class="contact-item"><i class="bi bi-box-seam" aria-hidden="true"></i><div><h3>Order question?</h3><p>Include your order number so we can find the right details quickly.</p></div></div>
+        <p class="form-note mt-4">Common Goods is a sample storefront project. Contact details are placeholders.</p>
+      </aside>
+      <div class="col-md-7 contact-form-wrap"><h2 class="contact-title">Send us a note</h2>
+        <form id="contactForm" novalidate>
+          <div class="row g-3">
+            <div class="col-sm-6"><label class="form-label" for="contactName">Your name</label><input class="form-control" id="contactName" name="name" autocomplete="name" required minlength="2"><div class="invalid-feedback">Please enter your name.</div></div>
+            <div class="col-sm-6"><label class="form-label" for="contactEmail">Email address</label><input class="form-control" id="contactEmail" name="email" type="email" autocomplete="email" required><div class="invalid-feedback">Enter a valid email address.</div></div>
+            <div class="col-12"><label class="form-label" for="contactTopic">What can we help with?</label><select class="form-select" id="contactTopic" name="topic" required><option value="" selected disabled>Choose a topic</option><option>Product question</option><option>Order support</option><option>Returns</option><option>Something else</option></select><div class="invalid-feedback">Choose a topic.</div></div>
+            <div class="col-12"><label class="form-label" for="contactMessage">Your message</label><textarea class="form-control" id="contactMessage" name="message" required minlength="10"></textarea><div class="invalid-feedback">Please write at least 10 characters.</div></div>
+            <div class="col-12 d-flex flex-column flex-sm-row align-items-sm-center gap-3"><button class="send-button" type="submit">Send your message <i class="bi bi-arrow-right ms-2"></i></button><span class="form-note">This sample form does not send or store messages.</span></div>
+            <div class="col-12"><p class="form-status" id="formStatus" role="status" aria-live="polite"></p></div>
+          </div>
+        </form>
+      </div>
+    </div></section>
+    <section class="faq-band"><div class="container"><span class="section-kicker">A few quick answers</span><h2>Before you send a note.</h2><div class="accordion accordion-flush" id="contactFaq">
+      <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqShipping" aria-expanded="false" aria-controls="faqShipping">When will my order ship?</button></h3><div id="faqShipping" class="accordion-collapse collapse" data-bs-parent="#contactFaq"><div class="accordion-body">This sample shop does not fulfill real orders. In a live store, shipping timing and tracking would be shown in your order email.</div></div></div>
+      <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqReturns" aria-expanded="false" aria-controls="faqReturns">Can I return an item?</button></h3><div id="faqReturns" class="accordion-collapse collapse" data-bs-parent="#contactFaq"><div class="accordion-body">The storefront demonstrates a 30-day return policy, but returns are not connected to an order system yet.</div></div></div>
+      <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqProduct" aria-expanded="false" aria-controls="faqProduct">Are the product details real?</button></h3><div id="faqProduct" class="accordion-collapse collapse" data-bs-parent="#contactFaq"><div class="accordion-body">Product names, descriptions, and prices are sample content created to demonstrate the storefront experience.</div></div></div>
+    </div></div></section>
+  </main>
+  <footer><div class="container d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3"><a class="brand d-flex align-items-center text-white" href="index.html"><span class="brand-mark">c</span>common goods</a><span class="footer-note">A sample storefront project · &copy; <span id="year"></span> Common Goods</span><a class="footer-note" href="about.html">Our story <i class="bi bi-arrow-right ms-1"></i></a></div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="theme.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('contactForm').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      form.classList.add('was-validated');
+      if (!form.checkValidity()) {
+        document.getElementById('formStatus').textContent = 'Please check the highlighted fields.';
+        return;
+      }
+      document.getElementById('formStatus').textContent = 'Thanks for reaching out. This demo form does not send messages yet.';
+      form.reset();
+      form.classList.remove('was-validated');
+    });
+  </script>
+</body>
+</html>
