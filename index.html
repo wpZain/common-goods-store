@@ -109,6 +109,11 @@
     .checkout-btn:hover { background: var(--green); }
     .cart-empty { padding: 55px 25px; color: var(--muted); font-size: .88rem; text-align: center; }
     .toast { border: 1px solid var(--line); border-radius: 0; background: var(--paper); color: var(--ink); font-size: .83rem; }
+    @media (max-width: 991.98px) {
+      .shop-toolbar { align-items: flex-start !important; flex-direction: column; gap: 17px; }
+      .shop-controls { width: 100%; }
+    }
+    @media (max-width: 575.98px) { #productModal .modal-dialog-centered { align-items: flex-start; } }
     @media (max-width: 767.98px) {
       .navbar > .container { min-height: 65px; }
       .hero { padding-top: 14px; }
@@ -117,7 +122,7 @@
       .hero-image { object-position: 60% center; }
       .hero-copy { padding: 82px 25px 65px; }
       .hero h1 { font-size: 3.45rem; }
-      .hero-note { right: 14px; bottom: 15px; font-size: .58rem; }
+      .hero-note { position: relative; top: auto; right: auto; bottom: auto; left: auto; display: block; max-width: calc(100% - 50px); margin: -50px 25px 20px; font-size: .58rem; }
       .benefit-row { padding: 16px 0; }
       .benefit { justify-content: flex-start; padding: 8px 0; font-size: .69rem; }
       .shop-section { padding: 55px 0 65px; }
@@ -128,16 +133,17 @@
       .category-tabs { margin-top: 21px; }
       .quick-view { opacity: 1; transform: none; }
     }
+    @media (max-width: 380px) { .hero h1 { font-size: 2.8rem; } }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
   </style>
 </head>
 <body>
   <div class="announcement d-flex align-items-center justify-content-center text-center px-3">A GOOD THING, DELIVERED FREE ON ORDERS OVER $75</div>
 
-  <nav class="navbar navbar-expand-md sticky-top" aria-label="Main navigation">
+  <nav class="navbar navbar-expand-lg sticky-top" aria-label="Main navigation">
     <div class="container">
       <a class="brand d-flex align-items-center" href="#home" aria-label="Common Goods home"><span class="brand-mark">c</span>common goods</a>
-      <button class="theme-toggle ms-auto me-2 d-md-none" type="button" data-theme-toggle aria-label="Switch theme" title="Switch theme"><i class="bi bi-moon-stars" aria-hidden="true"></i></button>
+      <button class="theme-toggle ms-auto me-2 d-lg-none" type="button" data-theme-toggle aria-label="Switch theme" title="Switch theme"><i class="bi bi-moon-stars" aria-hidden="true"></i></button>
       <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation"><i class="bi bi-list fs-3"></i></button>
       <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav mx-auto gap-md-3">
@@ -149,7 +155,7 @@
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
         <button class="icon-button position-relative ms-md-2 mt-3 mt-md-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartPanel" aria-controls="cartPanel" aria-label="Open shopping bag"><i class="bi bi-bag"></i><span class="cart-count" id="cartCount">0</span></button>
-        <button class="theme-toggle d-none d-md-inline-flex ms-md-3" type="button" data-theme-toggle aria-label="Switch theme" title="Switch theme"><i class="bi bi-moon-stars" aria-hidden="true"></i></button>
+        <button class="theme-toggle d-none d-lg-inline-flex ms-lg-3" type="button" data-theme-toggle aria-label="Switch theme" title="Switch theme"><i class="bi bi-moon-stars" aria-hidden="true"></i></button>
       </div>
     </div>
   </nav>
@@ -373,6 +379,11 @@
       activeCategory = link.dataset.navCategory;
       document.querySelector(`[data-category="${activeCategory}"]`).click();
     }));
+
+    document.getElementById('mainNav').addEventListener('click', (event) => {
+      if (!event.target.closest('.nav-link') || !window.matchMedia('(max-width: 991.98px)').matches) return;
+      bootstrap.Collapse.getOrCreateInstance(document.getElementById('mainNav')).hide();
+    });
 
     document.getElementById('productSearch').addEventListener('input', renderProducts);
     document.getElementById('sortProducts').addEventListener('change', renderProducts);
